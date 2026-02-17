@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexibility of Inference Control - AI/ML Portfolio</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .post-container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .post-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .post-meta {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .post-category-tag {
+            background: var(--accent-blue);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .post-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .post-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+        }
+
+        .post-divider {
+            border: none;
+            border-top: 1px solid var(--border-color);
+            margin-bottom: 2.5rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Tool Section */
+        .tool-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tool-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tool-number {
+            background: var(--accent-blue);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .tool-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .tool-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-left: 0.25rem;
+        }
+
+        .tool-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 600px) {
+            .tool-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .tool-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+        }
+
+        .tool-box-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--accent-blue);
+            margin-bottom: 0.6rem;
+        }
+
+        .tool-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .tool-box li {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            padding: 0.2rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .tool-box li::before {
+            content: '·';
+            color: var(--accent-blue);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .tool-box-full {
+            grid-column: 1 / -1;
+        }
+
+        /* Pros / Cons */
+        .pros-cons-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 600px) {
+            .pros-cons-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pros-box {
+            background: rgba(34, 197, 94, 0.07);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+        }
+
+        .cons-box {
+            background: rgba(239, 68, 68, 0.06);
+            border: 1px solid rgba(239, 68, 68, 0.25);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+        }
+
+        .pros-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #22c55e;
+            margin-bottom: 0.6rem;
+        }
+
+        .cons-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #ef4444;
+            margin-bottom: 0.6rem;
+        }
+
+        .pros-box ul,
+        .cons-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .pros-box li {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            padding: 0.2rem 0;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .pros-box li::before {
+            content: '✓';
+            color: #22c55e;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .cons-box li {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            padding: 0.2rem 0;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .cons-box li::before {
+            content: '✗';
+            color: #ef4444;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* Comparison Table */
+        .section-title-sm {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1.25rem;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .comparison-table th {
+            background: var(--accent-blue);
+            color: white;
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table th:first-child {
+            width: 180px;
+        }
+
+        .comparison-table td {
+            padding: 0.7rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            vertical-align: top;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tr:nth-child(even) td {
+            background: var(--bg-secondary);
+        }
+
+        .comparison-table td:first-child {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo"><a href="../index.html" style="text-decoration: none; color: inherit;">AI/ML Portfolio</a></div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../categories/development.html">Development</a></li>
+                <li><a href="../categories/machine-learning.html">ML</a></li>
+                <li><a href="../categories/java.html">Java</a></li>
+                <li><a href="../categories/papers.html">Papers</a></li>
+                <li><a href="../categories/python.html">Python</a></li>
+                <li><a href="../categories/ai.html">AI</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="post-container">
+            <a href="../categories/ai.html" class="back-link">&#8592; Back to Artificial Intelligence</a>
+
+            <!-- Post Header -->
+            <div class="post-header">
+                <div class="post-meta">
+                    <a href="../categories/ai.html" class="post-category-tag">Artificial Intelligence</a>
+                    <span class="post-date">February 2026</span>
+                </div>
+                <h1 class="post-title">Flexibility of Inference Control</h1>
+            </div>
+            <hr class="post-divider">
+
+            <!-- Post Body -->
+            <div class="post-body">
+
+                <!-- 1. Ollama -->
+                <div class="tool-section">
+                    <div class="tool-header">
+                        <div class="tool-number">1</div>
+                        <div>
+                            <span class="tool-name">Ollama</span>
+                            <span class="tool-subtitle">— "Environment-Level Control"</span>
+                        </div>
+                    </div>
+
+                    <div class="tool-grid">
+                        <div class="tool-box">
+                            <div class="tool-box-label">Control Unit</div>
+                            <ul>
+                                <li>Server level</li>
+                                <li>Model execution environment</li>
+                            </ul>
+                        </div>
+                        <div class="tool-box">
+                            <div class="tool-box-label">What You Can Control</div>
+                            <ul>
+                                <li>OLLAMA_NUM_PARALLEL</li>
+                                <li>num_ctx</li>
+                                <li>Model selection</li>
+                                <li>Quantization options</li>
+                            </ul>
+                        </div>
+                        <div class="tool-box">
+                            <div class="tool-box-label">Characteristics</div>
+                            <ul>
+                                <li>Configuration is done before inference starts</li>
+                                <li>No intervention during inference</li>
+                                <li>No direct control over token generation</li>
+                            </ul>
+                        </div>
+                        <div class="tool-box">
+                            <div class="tool-box-label">Abstraction Level</div>
+                            <ul>
+                                <li>Highest level (close to a black box)</li>
+                                <li>Operates at the level of "running a model"</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="pros-cons-grid">
+                        <div class="pros-box">
+                            <div class="pros-label">Advantages</div>
+                            <ul>
+                                <li>Simple to use</li>
+                                <li>Good for local experimentation</li>
+                                <li>Fast deployment</li>
+                            </ul>
+                        </div>
+                        <div class="cons-box">
+                            <div class="cons-label">Limitations</div>
+                            <ul>
+                                <li>No conditional logic control</li>
+                                <li>Difficult to orchestrate multi-step reasoning</li>
+                                <li>No token-level control</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. vLLM -->
+                <div class="tool-section">
+                    <div class="tool-header">
+                        <div class="tool-number">2</div>
+                        <div>
+                            <span class="tool-name">vLLM</span>
+                            <span class="tool-subtitle">— "Request-Level Control"</span>
+                        </div>
+                    </div>
+
+                    <div class="tool-grid">
+                        <div class="tool-box">
+                            <div class="tool-box-label">Control Unit</div>
+                            <ul>
+                                <li>API request level</li>
+                            </ul>
+                        </div>
+                        <div class="tool-box">
+                            <div class="tool-box-label">What You Can Control</div>
+                            <ul>
+                                <li>temperature</li>
+                                <li>top_p</li>
+                                <li>max_tokens</li>
+                                <li>stop sequences</li>
+                                <li>Beam search</li>
+                            </ul>
+                        </div>
+                        <div class="tool-box">
+                            <div class="tool-box-label">Characteristics</div>
+                            <ul>
+                                <li>Configurable per request</li>
+                                <li>Stateless architecture</li>
+                                <li>No intervention once inference has started</li>
+                            </ul>
+                        </div>
+                        <div class="tool-box">
+                            <div class="tool-box-label">Abstraction Level</div>
+                            <ul>
+                                <li>Medium level</li>
+                                <li>Controls how each request is generated</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="pros-cons-grid">
+                        <div class="pros-box">
+                            <div class="pros-label">Advantages</div>
+                            <ul>
+                                <li>High-performance serving</li>
+                                <li>Efficient batching</li>
+                                <li>OpenAI-compatible API</li>
+                                <li>Suitable for large-scale services</li>
+                            </ul>
+                        </div>
+                        <div class="cons-box">
+                            <div class="cons-label">Limitations</div>
+                            <ul>
+                                <li>Cannot program the reasoning path</li>
+                                <li>Difficult to share state across requests</li>
+                                <li>No branching during token generation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. SGLang -->
+                <div class="tool-section">
+                    <div class="tool-header">
+                        <div class="tool-number">3</div>
+                        <div>
+                            <span class="tool-name">SGLang</span>
+                            <span class="tool-subtitle">— "Inference Algorithm-Level Control"</span>
+                        </div>
+                    </div>
+
+                    <div class="tool-grid">
+                        <div class="tool-box">
+                            <div class="tool-box-label">Control Unit</div>
+                            <ul>
+                                <li>Token generation step</li>
+                                <li>Reasoning path</li>
+                            </ul>
+                        </div>
+                        <div class="tool-box">
+                            <div class="tool-box-label">What Is Possible</div>
+                            <ul>
+                                <li>Branching with Python conditionals after gen()</li>
+                                <li>fork() → parallel reasoning paths</li>
+                                <li>select() → enforce model selection</li>
+                                <li>regex → constrain output format</li>
+                                <li>Dynamic reasoning orchestration</li>
+                            </ul>
+                        </div>
+                        <div class="tool-box">
+                            <div class="tool-box-label">Characteristics</div>
+                            <ul>
+                                <li>Inference can be written like a program</li>
+                                <li>Enables multi-agent style compositions</li>
+                                <li>Real-time control over generation</li>
+                            </ul>
+                        </div>
+                        <div class="tool-box">
+                            <div class="tool-box-label">Abstraction Level</div>
+                            <ul>
+                                <li>Lowest level (most flexible)</li>
+                                <li>You don't just call the LLM — you control it</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="pros-cons-grid">
+                        <div class="pros-box">
+                            <div class="pros-label">Advantages</div>
+                            <ul>
+                                <li>Full programmatic control over reasoning</li>
+                                <li>Supports dynamic branching and forking</li>
+                                <li>Powerful multi-agent orchestration</li>
+                            </ul>
+                        </div>
+                        <div class="cons-box">
+                            <div class="cons-label">Limitations</div>
+                            <ul>
+                                <li>Higher learning curve</li>
+                                <li>More complex setup than Ollama/vLLM</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comparison Table -->
+                <h2 class="section-title-sm">Structural Comparison</h2>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Ollama</th>
+                            <th>vLLM</th>
+                            <th>SGLang</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Control Subject</td>
+                            <td>Server administrator</td>
+                            <td>API client</td>
+                            <td>Programmer</td>
+                        </tr>
+                        <tr>
+                            <td>Control Timing</td>
+                            <td>Before inference</td>
+                            <td>Before each request</td>
+                            <td>During token generation</td>
+                        </tr>
+                        <tr>
+                            <td>State Sharing</td>
+                            <td>Not supported</td>
+                            <td>Per-request only</td>
+                            <td>Supported</td>
+                        </tr>
+                        <tr>
+                            <td>Dynamic Branching</td>
+                            <td>Not supported</td>
+                            <td>Not supported</td>
+                            <td>Supported</td>
+                        </tr>
+                        <tr>
+                            <td>Complex Orchestration</td>
+                            <td>Difficult</td>
+                            <td>Limited</td>
+                            <td>Powerful</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 AI/ML Engineer Portfolio. Built with passion for AI.</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
