@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experimental Design for Machine Learning - AI/ML Portfolio</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .post-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .post-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .post-meta {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .post-category-tag {
+            background: var(--accent-blue);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .post-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .post-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+        }
+
+        .post-source {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .post-body h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 2rem 0 1rem;
+        }
+
+        .post-body h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .post-body p {
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .question-block {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .question-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+        }
+
+        .question-text {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .question-instruction {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 1.25rem;
+        }
+
+        .options-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-secondary);
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        .option-item:hover {
+            border-color: var(--accent-blue);
+        }
+
+        .option-checkbox {
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--border-color);
+            border-radius: 4px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .option-text {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--accent-blue);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo"><a href="../index.html" style="text-decoration: none; color: inherit;">AI/ML Portfolio</a></div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../categories/development.html">Development</a></li>
+                <li><a href="../categories/machine-learning.html">ML</a></li>
+                <li><a href="../categories/java.html">Java</a></li>
+                <li><a href="../categories/papers.html">Papers</a></li>
+                <li><a href="../categories/python.html">Python</a></li>
+                <li><a href="../categories/ai.html">AI</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="post-container">
+            <a href="../categories/machine-learning.html" class="back-link">&#8592; Back to Machine Learning</a>
+
+            <!-- Post Header -->
+            <div class="post-header">
+                <div class="post-meta">
+                    <a href="../categories/machine-learning.html" class="post-category-tag">Machine Learning</a>
+                    <span class="post-date">February 2026</span>
+                </div>
+                <h1 class="post-title">Experimental Design for Machine Learning<br>The University of Nottingham</h1>
+                <p class="post-source">Course: Machine learning, data collection, and annotation</p>
+            </div>
+
+            <!-- Post Body -->
+            <div class="post-body">
+
+                <div class="question-block">
+                    <div class="question-label">Question 1</div>
+                    <p class="question-text">
+                        Collecting data is important as all the machine learning will rely on good quality source data.
+                        Which of these image artefacts cannot always be fixed after the data has been captured?
+                        You can select multiple options.
+                    </p>
+                    <p class="question-instruction">Select all the answers you think are correct.</p>
+
+                    <ul class="options-list">
+                        <li class="option-item">
+                            <div class="option-checkbox"></div>
+                            <span class="option-text">Over-exposure (too bright)</span>
+                        </li>
+                        <li class="option-item">
+                            <div class="option-checkbox"></div>
+                            <span class="option-text">Underexposure (too dark)</span>
+                        </li>
+                        <li class="option-item">
+                            <div class="option-checkbox"></div>
+                            <span class="option-text">Blurred regions of the image</span>
+                        </li>
+                        <li class="option-item">
+                            <div class="option-checkbox"></div>
+                            <span class="option-text">Additional objects at the edge of the frame</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 AI/ML Engineer Portfolio. Built with passion for AI.</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
